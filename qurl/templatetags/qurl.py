@@ -1,4 +1,4 @@
-import sys
+import six
 
 try:
     from __future__ import unicode_literals, absolute_import
@@ -13,12 +13,12 @@ from django.utils.encoding import smart_str
 from django.template import Library, Node, TemplateSyntaxError
 
 
-PY_MAJOR_VERSION = sys.version_info[0]
-if PY_MAJOR_VERSION == 3:
+if six.PY3:
     from urllib.parse import urlparse, parse_qsl, urlunparse, urlencode
 else:
     from urlparse import urlparse, parse_qsl, urlunparse
     from urllib import urlencode
+
 
 from qurl import qurl as qurl_process
 
