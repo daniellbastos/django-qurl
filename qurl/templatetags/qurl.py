@@ -1,4 +1,9 @@
-from __future__ import unicode_literals, absolute_import
+import sys
+
+try:
+    from __future__ import unicode_literals, absolute_import
+except:
+    pass
 
 import re
 import django
@@ -6,9 +11,10 @@ from django.template.defaulttags import URLNode
 
 from django.utils.encoding import smart_str
 from django.template import Library, Node, TemplateSyntaxError
-from django.utils import six
 
-if six.PY3:
+
+PY_MAJOR_VERSION = sys.version_info[0]
+if PY_MAJOR_VERSION == 3:
     from urllib.parse import urlparse, parse_qsl, urlunparse, urlencode
 else:
     from urlparse import urlparse, parse_qsl, urlunparse
