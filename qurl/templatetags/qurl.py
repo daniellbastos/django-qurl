@@ -1,10 +1,6 @@
+from __future__ import unicode_literals, absolute_import
+
 import six
-
-try:
-    from __future__ import unicode_literals, absolute_import
-except:
-    pass
-
 import re
 import django
 from django.template.defaulttags import URLNode
